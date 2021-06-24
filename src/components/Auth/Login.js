@@ -55,6 +55,7 @@ export default function Login() {
           type: userActionTypes.UPDATE_USER_LOGIN,
           payload: {
             isLoggedIn: true,
+            name: response.name,
           },
         });
         navigate(from || "/");
@@ -68,7 +69,7 @@ export default function Login() {
 
   const addTokenToStorage = (token) => {
     localStorage.setItem(
-      "devCartAuth",
+      "cssFightAuth",
       JSON.stringify({ isLoggedIn: true, token: token })
     );
   };

@@ -1,20 +1,26 @@
 import * as actionTypes from "./userActionTypes";
-import {
-  FIGHT_STATUSES,
-  DEFAULT_FIGHT_STATE,
-  DEFAULT_CODE,
-} from "../appConstants";
+import { DEFAULT_FIGHT_STATE, DEFAULT_CODE } from "../appConstants";
 
-const updateUserLogin = (state, { isLoggedIn }) => {
+const updateUserLogin = (state, { isLoggedIn, name }) => {
   if (!isLoggedIn) {
     localStorage.removeItem("cssFightAuth");
   }
-  return { ...state, isLoggedIn: isLoggedIn };
+  return {
+    ...state,
+    isLoggedIn: isLoggedIn,
+    name: isLoggedIn ? name : "",
+  };
+};
+
+const syncUserFights = (state, { userFights }) => {
+  return {
+    ...state,
+    fights: userFights,
+  };
 };
 
 const updateCurrentFight = (state, { fightId }) => {
   const stateCopy = { ...state };
-  if (stateCopy.currentFightId === fightId) return stateCopy;
 
   stateCopy.currentFightId = fightId;
 
@@ -24,11 +30,9 @@ const updateCurrentFight = (state, { fightId }) => {
       {
         ...DEFAULT_FIGHT_STATE,
         fightId: fightId,
-        fightStatus: FIGHT_STATUSES.IN_PROGRESS,
       },
     ]);
   }
-
   return stateCopy;
 };
 
@@ -62,22 +66,11 @@ const updateSlideAndCompareFlag = (state, { slideAndCompareFlag }) => {
   return { ...state, allowSlideAndCompare: slideAndCompareFlag };
 };
 
-const submitFight = (state, { fightId, fightCode, fightScore }) => {
+const submitFight = (state, { fightId, fightCode, fightScores }) => {
   let stateCopy = { ...state };
   stateCopy.fights = stateCopy.fights.map((fight) => {
     if (fight.fightId === fightId) {
-      let fightCopy = { ...fight };
-      fightCopy.fightCode = fightCode;
-      fightCopy.fightLastScore = fightScore > 98 ? 100 : fightScore;
-      fightCopy.fightHighScore =
-        fightCopy.fightLastScore > fightCopy.fightHighScore
-          ? fightScore
-          : fightCopy.fightHighScore;
-      fightCopy.fightStatus =
-        fightScore === 100
-          ? FIGHT_STATUSES.COMPLETED
-          : FIGHT_STATUSES.IN_PROGRESS;
-      return fightCopy;
+      return { ...fight, fightCode, ...fightScores };
     }
     return fight;
   });
@@ -88,6 +81,8 @@ export const userReducer = (state, action) => {
   switch (action.type) {
     case actionTypes.UPDATE_USER_LOGIN:
       return updateUserLogin(state, action.payload);
+    case actionTypes.SYNC_USER_FIGHTS:
+      return syncUserFights(state, action.payload);
     case actionTypes.UPDATE_CURRENT_FIGHT:
       return updateCurrentFight(state, action.payload);
     case actionTypes.UPDATE_FIGHT_CODE:

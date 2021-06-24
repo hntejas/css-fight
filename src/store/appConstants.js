@@ -32,7 +32,6 @@ export const FIGHT_STATUSES = {
 };
 
 export const DEFAULT_FIGHT_STATE = {
-  fightStatus: FIGHT_STATUSES.NOT_STARTED,
   fightHighScore: 0,
   fightLastScore: 0,
   fightCode: DEFAULT_CODE,

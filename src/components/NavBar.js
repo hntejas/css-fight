@@ -8,15 +8,6 @@ export default function NavBar() {
   const { user, userDispatch, userActionTypes } = useUser();
   const { fights } = useContext(FightsContext);
 
-  const changeCurrentFight = (fightId) => {
-    userDispatch({
-      type: actionTypes.UPDATE_CURRENT_FIGHT,
-      payload: {
-        fightId: fightId,
-      },
-    });
-  };
-
   const authHandler = () => {
     userDispatch({
       type: userActionTypes.UPDATE_USER_LOGIN,
@@ -25,6 +16,10 @@ export default function NavBar() {
       },
     });
   };
+
+  const currentFight = fights.find(
+    (fight) => fight.fightId === user.currentFightId
+  );
 
   return (
     <div className="nav-container">
@@ -37,26 +32,26 @@ export default function NavBar() {
           </span>
         </Link>
         <div>
-          <select
-            className="fight-selector"
-            value={user.currentFightId}
-            onChange={(e) => {
-              const fightId = parseInt(e.target.value, 10);
-              changeCurrentFight(fightId);
-            }}
-          >
-            {fights.map((fight) => {
-              return (
-                <option
-                  key={fight.fightId}
-                  id={fight.fightId}
-                  value={fight.fightId}
-                >
-                  #{fight.fightId} {fight.fightName}
-                </option>
-              );
-            })}
-          </select>
+          <div className="fight-selector">
+            <div className="current-fight">
+              {currentFight &&
+                "#" + currentFight.fightId + " " + currentFight.fightName}
+              <span>🔻</span>
+            </div>
+            <div className="fight-list">
+              {fights.map((fight) => {
+                return (
+                  <Link
+                    key={fight.fightId}
+                    to={`/fight/${fight.fightId}`}
+                    className="fight-list-item"
+                  >
+                    #{fight.fightId} {fight.fightName}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
       <button className="btn-logout" onClick={authHandler}>

@@ -13,7 +13,7 @@ export default function Home() {
         const levelFights = fights.filter(
           (fight) => fight.levelId === level.id
         );
-        return <Level levelInfo={level} fights={levelFights} />;
+        return <Level levelInfo={level} fights={levelFights} key={level.id} />;
       })}
     </div>
   );

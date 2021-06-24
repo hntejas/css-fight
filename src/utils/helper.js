@@ -7,3 +7,7 @@ export function showToast(text) {
     style: { background: "#181818", minHeight: "2rem" },
   });
 }
+
+export const getAuthToken = () =>
+  localStorage.getItem("cssFightAuth") &&
+  JSON.parse(localStorage.getItem("cssFightAuth"))["token"];

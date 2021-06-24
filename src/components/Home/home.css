@@ -1,6 +1,6 @@
 .home-header {
   padding: 0.3rem 1rem;
-  max-width: calc(100% - 2rem);
+  max-width: calc(100vw - 2rem);
   background: #27313a;
 }
 
@@ -9,6 +9,7 @@
   border: 1px solid #27313a;
   border-radius: 15px;
   overflow: hidden;
+  max-width: calc(100vw - 4rem);
 }
 
 .level-header {
