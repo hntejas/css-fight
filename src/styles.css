@@ -17,7 +17,7 @@ body {
   text-align: left;
   background: #13181c;
   color: white;
-  font-size: 1.15rem;
+  font-size: 1rem;
   line-height: 1.5rem;
 }
 
@@ -28,14 +28,24 @@ body {
 
 .btn-reset-code {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  padding: 10px;
+  bottom: 1rem;
+  right: 2rem;
+  padding: 0.6rem;
   background: #27313a;
   border: none;
   color: white;
   font-weight: bold;
   cursor: pointer;
+}
+
+.btn-logout {
+  padding: 0.6rem;
+  background: #27313a;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .btn-reset-code:hover {
@@ -47,25 +57,27 @@ textarea {
   padding: 5px;
   resize: none;
   width: calc(100% - 10px);
-  min-width: 300px;
+  min-width: 400px;
   height: calc(100% - 5px);
   margin: auto;
   text-align: left;
   background: #13181c;
   color: white;
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 1.5rem;
   padding-bottom: 0;
 }
-textarea::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 12px;
+  height: 10px;
   background-color: #171d23;
   cursor: pointer;
 }
 
-textarea::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   cursor: pointer;
   border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
   background-color: #27313a;
 }
@@ -104,12 +116,21 @@ textarea:focus {
   color: white;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0.2rem 0;
+}
+
+.flex-wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .nav-container .logo {
   font-size: 1.5rem;
   font-weight: bold;
   color: #e0af35;
+  text-decoration: none;
+  display: block;
 }
 
 .fight-selector {
@@ -152,12 +173,11 @@ textarea:focus {
   color: white;
   background: #27313a;
   padding: 10px 15px;
-  margin-top: 10px;
 }
 
 .editor-header {
   width: 100%;
-  min-width: 290px;
+  min-width: 390px;
   border-right: 1px solid gray;
 }
 

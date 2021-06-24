@@ -1,0 +1,70 @@
+.home-header {
+  padding: 0.3rem 1rem;
+  max-width: calc(100% - 2rem);
+  background: #27313a;
+}
+
+.level-container {
+  margin: 2rem;
+  border: 1px solid #27313a;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.level-header {
+  background: #13181c;
+  border: 1px solid #27313a;
+  padding: 1rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  color: white;
+  border-top: 0;
+}
+
+.level-content {
+  width: 100%;
+  background: #171d23;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: scroll;
+  padding: 1.5rem 0;
+  overflow-y: hidden;
+}
+
+.level-info {
+  position: sticky;
+  left: 0;
+  min-width: 250px;
+  max-width: 250px;
+  background: #171d23;
+  border-right: 1px solid #27313a;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  z-index: 10;
+}
+
+.fight-img {
+  height: 100%;
+}
+
+.fight-card {
+  display: block;
+  height: 220px;
+  margin: 0 1rem;
+  position: relative;
+}
+
+.hover-fightid {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  color: white;
+  background: #13181c;
+  padding: 0.2rem 0.7rem;
+  border-radius: 15px;
+  letter-spacing: 1.5px;
+}

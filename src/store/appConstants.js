@@ -14,7 +14,7 @@ div {
 }
 
 /*
--> Select your favourite fight on the top navigation
+-> Select your favorite fight on the top navigation
 -> Use this editor window make your changes to HTML/CSS to replicate the target image
 -> Hover on the Output window to slide and compare your version to the target
 
@@ -28,12 +28,12 @@ Apologies on this experience - Will be fixed in future releases
 export const FIGHT_STATUSES = {
   IN_PROGRESS: "IN_PROGRESS",
   COMPLETED: "COMPLETED",
-  NOT_STARTED: "NOT_STARTED"
+  NOT_STARTED: "NOT_STARTED",
 };
 
 export const DEFAULT_FIGHT_STATE = {
   fightStatus: FIGHT_STATUSES.NOT_STARTED,
   fightHighScore: 0,
   fightLastScore: 0,
-  fightCode: DEFAULT_CODE
+  fightCode: DEFAULT_CODE,
 };
