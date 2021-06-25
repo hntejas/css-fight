@@ -33,6 +33,7 @@ const ResultPreview = (
       imgOverlayRef.current.style.width = "400px";
     }
   };
+
   return (
     <div className="output-container">
       <div
@@ -60,7 +61,7 @@ const ResultPreview = (
             src={currentFightData.fightImg}
             width="400px"
             height="300px"
-            alt="level1"
+            alt={currentFightData.fightName}
           />
         </div>
       </div>

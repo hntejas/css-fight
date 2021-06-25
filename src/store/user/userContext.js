@@ -1,12 +1,11 @@
 import { createContext, useReducer, useEffect } from "react";
 import { userReducer } from "./userReducer";
-import { DEFAULT_CODE } from "../appConstants";
+import { DEFAULT_CODE } from "../../utils/appConstants";
 import * as userActionTypes from "./userActionTypes";
 
 export const UserContext = createContext();
 
 const initialUserState = {
-  id: 1,
   isLoggedIn: false,
   name: "",
   currentFightId: 1,

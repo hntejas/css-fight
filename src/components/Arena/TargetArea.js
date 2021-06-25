@@ -22,10 +22,10 @@ const TargetArea = ({ currentFightData }, ref) => {
         src={currentFightData.fightImg}
         width="400px"
         height="300px"
-        alt="level1"
+        alt={currentFightData.fightName}
       />
       <hr className="hr-divider" style={{ marginTop: "15px" }} />
-      <h4>COLORS TO USE:</h4>
+      <h4>COLORS TO USE [ click to copy ]</h4>
       <div className="color-container">
         {currentFightData.fightColors.map((color) => {
           return (

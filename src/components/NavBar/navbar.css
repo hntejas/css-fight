@@ -1,0 +1,91 @@
+.nav-container {
+  border: 1px solid var(--light-gray);
+  border-radius: 0.25rem;
+  width: calc(100% - 2rem);
+  background: #0f1117;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.2rem 1rem;
+}
+
+.flex-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.nav-container .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e0af35;
+  text-decoration: none;
+  display: block;
+}
+
+.fight-selector {
+  padding: 7px 20px;
+  background: #13181c;
+  color: white;
+  outline: 1px solid white;
+  font-size: 1rem;
+  margin-left: 20px;
+  font-weight: bold;
+  border: none;
+  position: relative;
+}
+
+.current-fight {
+  width: 100%;
+  min-width: 220px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fight-selector:hover > .fight-list {
+  display: block;
+}
+
+.fight-list {
+  display: none;
+  background: #323f4a;
+  position: absolute;
+  top: 2.28rem;
+  left: 0;
+  z-index: 200;
+  width: max-content;
+  max-height: 300px;
+  overflow: scroll;
+  padding: 0 1.5rem;
+}
+
+.fight-list-item {
+  display: block;
+  color: white;
+  margin: 1rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.fight-list-item:hover {
+  text-decoration: underline;
+}
+
+.nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+.nav-bar li {
+  list-style: none;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  color: var(--white);
+}
+
+.nav-bar li:hover {
+  background: var(--light-gray);
+  color: black;
+}

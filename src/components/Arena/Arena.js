@@ -1,9 +1,9 @@
-import { useRef, useState, useContext, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import * as htmlToImage from "html-to-image";
 
 import { useUser } from "../../store/user";
-import { FightsContext } from "../../store/fightsContext";
+import { useFightData } from "../../store/fights";
 import { saveCode, saveAndSubmit } from "../../services/fight.service";
 
 import ArenaHeader from "./ArenaHeader";
@@ -11,13 +11,14 @@ import TargetArea from "./TargetArea";
 import CodeEditor from "./CodeEditor";
 import ResultPreview from "./ResultPreview";
 import { showToast } from "../../utils/helper";
+import "./arena.css";
 
 export default function Arena() {
   const targetRef = useRef();
   const sourceRef = useRef();
 
   const { user, userDispatch, userActionTypes } = useUser();
-  const { fights } = useContext(FightsContext);
+  const { fights } = useFightData();
   const { fightId } = useParams();
 
   const currentFightData = fights.find(

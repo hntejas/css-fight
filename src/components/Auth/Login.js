@@ -1,9 +1,8 @@
 import { useState } from "react";
-
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import { useUser } from "../../store/user";
-import { showToast } from "../../utils/helper";
+import { showToast, addTokenToStorage } from "../../utils/helper";
 import { login } from "../../services/auth.service";
 import "./auth.css";
 
@@ -65,13 +64,6 @@ export default function Login() {
         );
       }
     }
-  };
-
-  const addTokenToStorage = (token) => {
-    localStorage.setItem(
-      "cssFightAuth",
-      JSON.stringify({ isLoggedIn: true, token: token })
-    );
   };
 
   const onChangeHandler = (e) => {

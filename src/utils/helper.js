@@ -8,6 +8,13 @@ export function showToast(text) {
   });
 }
 
+export const addTokenToStorage = (token) => {
+  localStorage.setItem(
+    "cssFightAuth",
+    JSON.stringify({ isLoggedIn: true, token: token })
+  );
+};
+
 export const getAuthToken = () =>
   localStorage.getItem("cssFightAuth") &&
   JSON.parse(localStorage.getItem("cssFightAuth"))["token"];

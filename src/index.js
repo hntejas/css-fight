@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import UserContextProvider from "./store/user/userContext";
-import FightsContextProvider from "./store/fightsContext";
+import FightsContextProvider from "./store/fights/fightsContext";
 
 import App from "./App";
 

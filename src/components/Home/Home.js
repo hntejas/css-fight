@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import { FightsContext } from "../../store/fightsContext";
+import { useFightData } from "../../store/fights";
 import Level from "./Level";
 import "./home.css";
 
 export default function Home() {
-  const { fights, levels } = useContext(FightsContext);
+  const { fights, levels } = useFightData();
 
   return (
     <div>

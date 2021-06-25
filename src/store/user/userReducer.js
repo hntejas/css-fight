@@ -1,5 +1,5 @@
 import * as actionTypes from "./userActionTypes";
-import { DEFAULT_FIGHT_STATE, DEFAULT_CODE } from "../appConstants";
+import { DEFAULT_FIGHT_STATE, DEFAULT_CODE } from "../../utils/appConstants";
 
 const updateUserLogin = (state, { isLoggedIn, name }) => {
   if (!isLoggedIn) {

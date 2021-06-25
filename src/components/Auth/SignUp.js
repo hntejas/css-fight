@@ -4,7 +4,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useUser } from "../../store/user";
 import { signup } from "../../services/auth.service";
 
-import { showToast } from "../../utils/helper";
+import { showToast, addTokenToStorage } from "../../utils/helper";
 import "./auth.css";
 
 export default function SignUp() {
@@ -115,13 +115,6 @@ export default function SignUp() {
       }
     }
     return isFormValid;
-  };
-
-  const addTokenToStorage = (token) => {
-    localStorage.setItem(
-      "cssFightAuth",
-      JSON.stringify({ isLoggedIn: true, token: token })
-    );
   };
 
   return (
