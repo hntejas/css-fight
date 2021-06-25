@@ -59,6 +59,10 @@
   cursor: pointer;
 }
 
+.auth-btn:disabled {
+  background: #96baf5;
+}
+
 .error-input {
   background: pink;
   border: 1px solid red;

@@ -34,16 +34,19 @@ export default function Login() {
   const { userDispatch, userActionTypes } = useUser();
   const [userData, setUserData] = useState(initialUserData);
   const [showErrors, setShowErrors] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { state } = useLocation();
   from = state?.from;
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
     const isEmailvalid = validateForm();
     if (!isEmailvalid) {
       setShowErrors(true);
     } else {
+      setIsLoading(true);
       const response = await login({
         email: userData.email.value,
         password: userData.password.value,
@@ -63,6 +66,7 @@ export default function Login() {
           <p>Login failed! {response.error && response.error.message}</p>
         );
       }
+      setIsLoading(false);
     }
   };
 
@@ -129,8 +133,8 @@ export default function Login() {
         >
           {userData.password.errorMessage}
         </p>
-        <button type="submit" className="auth-btn">
-          login
+        <button type="submit" className="auth-btn" disabled={isLoading}>
+          {isLoading ? "Logging in..." : "login"}
         </button>
         <p>
           Not a user?{" "}

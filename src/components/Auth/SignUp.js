@@ -57,6 +57,7 @@ export default function SignUp() {
   const { userDispatch, userActionTypes } = useUser();
   const [userData, setUserData] = useState(initialUserData);
   const [showErrors, setShowErrors] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -72,6 +73,7 @@ export default function SignUp() {
 
       let from = "";
       from = query.get("from");
+      setIsLoading(true);
       const response = await signup(user);
       if (response.success) {
         addTokenToStorage(response.token);
@@ -87,6 +89,7 @@ export default function SignUp() {
           <p>Signup Failed!! {response.error && response.error.message}</p>
         );
       }
+      setIsLoading(false);
     }
   };
 
@@ -190,7 +193,7 @@ export default function SignUp() {
           {userData.reconfirmPassword.errorMessage}
         </p>
         <button type="submit" className="auth-btn">
-          Signup
+          {isLoading ? "Signing in..." : "Signup"}
         </button>
         <p>
           Already a user? <Link to="/login">Login</Link>
