@@ -10,12 +10,21 @@ export const useAppLoader = () => {
     setIsLoading(true);
     if (user.isLoggedIn) {
       const response = await getUserFights();
-      userDispatch({
-        type: userActionTypes.SYNC_USER_FIGHTS,
-        payload: {
-          userFights: response.fights,
-        },
-      });
+      if (response.success === true) {
+        userDispatch({
+          type: userActionTypes.SYNC_USER_FIGHTS,
+          payload: {
+            userFights: response.fights,
+          },
+        });
+      } else {
+        userDispatch({
+          type: userActionTypes.UPDATE_USER_LOGIN,
+          payload: {
+            isLoggedIn: false,
+          },
+        });
+      }
       setIsLoading(false);
     } else {
       userDispatch({
