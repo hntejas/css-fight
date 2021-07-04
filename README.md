@@ -1,4 +1,4 @@
-# Dev Quizzer
+# CSS Fight
 
 ![Demo](css-fight.PNG)
 
@@ -22,6 +22,7 @@ A fun filled, skill packed unique web application to test your CSS skills. Given
 ### Reflection
 
 I was always a bit hesitant on my ability about CSS, andly luckily on a good day I came accross CSS Battle - A web app where you replicate the target presented. It was fun, interesting and at the same time taught CSS the best way possible - just practicing. I consistently played it everyday and in no time I had immense confidence in CSS, good enough to believe I can achieve anything in CSS.
+
 As an inspiration and out of curiosity on how this worked, I build CSS fight - a clone of CSS battle.
 Building this app was quite a different experience. I have spent around 30-40 Hours on this. Helped me explore dynamic position tracking and aspects of image comparison.
 
