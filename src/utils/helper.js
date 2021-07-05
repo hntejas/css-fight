@@ -15,6 +15,12 @@ export const addTokenToStorage = (token) => {
   );
 };
 
+export const isLoggedInLocally = () => {
+  if (localStorage.getItem("cssFightAuth")) {
+    return JSON.parse(localStorage.getItem("cssFightAuth"))["isLoggedIn"];
+  }
+};
+
 export const getAuthToken = () =>
   localStorage.getItem("cssFightAuth") &&
   JSON.parse(localStorage.getItem("cssFightAuth"))["token"];

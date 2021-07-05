@@ -2,11 +2,12 @@ import { createContext, useReducer, useEffect } from "react";
 import { userReducer } from "./userReducer";
 import { DEFAULT_CODE } from "../../utils/appConstants";
 import * as userActionTypes from "./userActionTypes";
+import { isLoggedInLocally } from "../../utils/helper";
 
 export const UserContext = createContext();
 
 const initialUserState = {
-  isLoggedIn: false,
+  isLoggedIn: isLoggedInLocally(),
   name: "",
   currentFightId: 1,
   allowSlideAndCompare: true,

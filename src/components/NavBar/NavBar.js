@@ -1,19 +1,22 @@
 import { useUser } from "../../store/user";
 import { useFightData } from "../../store/fights";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./navbar.css";
 
 export default function NavBar() {
   const { user, userDispatch, userActionTypes } = useUser();
   const { fights } = useFightData();
+  const navigate = useNavigate();
 
   const authHandler = () => {
-    userDispatch({
-      type: userActionTypes.UPDATE_USER_LOGIN,
-      payload: {
-        isLoggedIn: !user.isLoggedIn,
-      },
-    });
+    user.isLoggedIn
+      ? userDispatch({
+          type: userActionTypes.UPDATE_USER_LOGIN,
+          payload: {
+            isLoggedIn: !user.isLoggedIn,
+          },
+        })
+      : navigate("login");
   };
 
   const currentFight = fights.find(
@@ -53,6 +56,7 @@ export default function NavBar() {
           </div>
         </div>
       </div>
+
       <button className="btn-logout" onClick={authHandler}>
         {user.isLoggedIn ? "Logout" : "Login"}
       </button>
