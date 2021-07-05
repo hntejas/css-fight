@@ -64,6 +64,11 @@
   background: #96baf5;
 }
 
+.inline-btn {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .error-input {
   background: pink;
   border: 1px solid red;

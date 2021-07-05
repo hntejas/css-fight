@@ -70,6 +70,17 @@ export default function Login() {
     }
   };
 
+  const addTestCredentials = () => {
+    setUserData((state) => {
+      const stateCopy = { ...state };
+      stateCopy.email.value = "ironman@avengers.com";
+      stateCopy.email.isValid = true;
+      stateCopy.password.value = "password";
+      stateCopy.password.isValid = true;
+      return stateCopy;
+    });
+  };
+
   const onChangeHandler = (e) => {
     showErrors && setShowErrors(false);
     const currentTarget = e.currentTarget;
@@ -141,6 +152,14 @@ export default function Login() {
           <Link state={{ from: from }} replace to={"/signup?from=" + from}>
             Signup
           </Link>
+        </p>
+
+        <p>
+          Click{" "}
+          <span className="inline-btn" onClick={addTestCredentials}>
+            here
+          </span>{" "}
+          to use test credentials
         </p>
       </form>
     </div>

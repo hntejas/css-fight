@@ -185,7 +185,7 @@ export default function SignUp() {
         >
           {userData.reconfirmPassword.errorMessage}
         </p>
-        <button type="submit" className="auth-btn">
+        <button type="submit" className="auth-btn" disabled={isLoading}>
           {isLoading ? "Signing in..." : "Signup"}
         </button>
         <p>
