@@ -1,22 +1,36 @@
-import UserContextProvider from "./store/userContext";
-import FightsContextProvider from "./store/fightsContext";
+import { Routes, Route } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
-import ArenaHeader from "./components/ArenaHeader";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
-import Arena from "./components/Arena";
+import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
+import Home from "./components/Home/Home";
+import Arena from "./components/Arena/Arena";
+import Login from "./components/Auth/Login";
+import SignUp from "./components/Auth/SignUp";
+import PrivateRoute from "./utils/PrivateRoute";
 
 import "./styles.css";
+import { useAppLoader } from "./utils/appLoaderHook";
 
 export default function App() {
+  const { isLoading } = useAppLoader();
+
+  if (isLoading) {
+    return "Loading...";
+  }
+
   return (
-    <UserContextProvider>
-      <FightsContextProvider>
-        <NavBar />
-        <ArenaHeader />
-        <Arena />
-        <Footer />
-      </FightsContextProvider>
-    </UserContextProvider>
+    <>
+      <ToastContainer />
+      <NavBar />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <PrivateRoute path="/fight/:fightId" element={<Arena />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
+      <Footer />
+    </>
   );
 }
